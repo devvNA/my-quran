@@ -36,7 +36,7 @@ body {
 }
 
 .ayat-highlight {
-  animation: ayat-highlight 1.5s ease-in-out 3;
+  animation: ayat-highlight 1s ease-in-out 1;
   border-radius: 0.5rem;
 }
 

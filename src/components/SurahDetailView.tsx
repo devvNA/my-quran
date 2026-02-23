@@ -122,24 +122,21 @@ export default function SurahDetailView({
         ref={scrollContainerRef}
       >
         {/* Hero Section */}
-        <div className="px-5 pt-6 pb-8 flex flex-col items-center relative z-10">
-          <div className="bg-[#018ead] w-full rounded-[2.5rem] pt-10 pb-12 px-8 text-center text-white relative overflow-hidden shadow-lg">
-            {/* Decorative background pattern */}
-            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent bg-[length:20px_20px]"></div>
-
+        <div className="px-2 pb-5 flex flex-col items-center relative z-10">
+          <div
+            className="w-full pt-12 pb-18 px-6 flex flex-col items-center justify-center text-center text-white relative bg-contain bg-no-repeat bg-center drop-shadow-lg"
+            style={{ backgroundImage: "url('/background-header.png')" }}
+          >
             <h2
-              className="text-4xl font-bold mb-4 font-arabic leading-tight relative z-10"
+              className="text-[2.3rem] font-bold font-arabic leading-tight drop-shadow-md"
               dir="rtl"
             >
               {surah.nama}
             </h2>
-            <h3 className="text-2xl font-semibold mb-2 tracking-wide relative z-10">
+            <h3 className="text-[1.2rem] font-semibold mb-0 tracking-wide drop-shadow-md">
               {surah.namaLatin}
             </h3>
-            <p className="text-white/80 mb-3 font-light relative z-10">
-              {surah.arti}
-            </p>
-            <p className="text-[0.9rem] opacity-90 font-medium relative z-10">
+            <p className="text-[0.75rem] opacity-90 font-medium drop-shadow-md">
               {surah.tempatTurun === "Mekah" ? "Makkiyah" : "Madaniyah"} •{" "}
               {surah.jumlahAyat} Ayat
             </p>
@@ -149,10 +146,10 @@ export default function SurahDetailView({
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setShowJumpDropdown(!showJumpDropdown)}
-              className="bg-[#018ead] text-white px-5 py-2.5 rounded-full flex items-center shadow-md -mt-6 relative z-20 border-4 border-white hover:shadow-lg hover:brightness-110 transition-all"
+              className="bg-[#018ead] text-white px-5 py-2 rounded-full flex items-center shadow-md -mt-15 relative z-100 border-[1px] border-white hover:shadow-lg hover:brightness-110 transition-all"
             >
               <span className="text-sm font-medium">
-                {selectedAyat ? `Ayat ${selectedAyat}` : "Jump to Ayat"}
+                {selectedAyat ? `Ayat ${selectedAyat}` : "Ayat"}
               </span>
               <ChevronDown
                 className={`w-4 h-4 ml-1.5 transition-transform ${showJumpDropdown ? "rotate-180" : ""}`}
@@ -161,12 +158,12 @@ export default function SurahDetailView({
 
             {/* Dropdown Menu */}
             {showJumpDropdown && (
-              <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 bg-white border border-gray-200 rounded-xl shadow-xl z-30 max-h-64 overflow-y-auto w-56">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white border border-gray-200 -mt-4 rounded-xl shadow-xl z-30 max-h-64 overflow-y-auto w-56">
                 <div className="p-3">
                   <p className="text-xs text-gray-500 mb-2 text-center font-medium">
                     Select Ayat Number
                   </p>
-                  <div className="grid grid-cols-5 gap-1.5">
+                  <div className="grid grid-cols-4 gap-1.5">
                     {Array.from(
                       { length: surah.jumlahAyat },
                       (_, i) => i + 1,
@@ -190,7 +187,7 @@ export default function SurahDetailView({
           </div>
         </div>
 
-        {/* Ayahs List */}
+        {/* Ayat List */}
         <div className="px-5 pb-12">
           {surah.ayat.map((ayah) => (
             <div
