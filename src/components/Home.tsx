@@ -112,6 +112,15 @@ export default function Home({ onSelectSurah }: HomeProps) {
                       {surah.jumlahAyat} Ayat
                     </p>
                   </div>
+                  <div className="text-right mr-3">
+                    <p
+                      className="text-sm font-medium text-[#018ead] font-arabic"
+                      dir="rtl"
+                    >
+                      {surah.nama}
+                    </p>
+                    <p className="text-xs text-gray-500 mt-0.5">{surah.arti}</p>
+                  </div>
                   <ChevronRight className="w-5 h-5 text-gray-400" />
                 </div>
               ))

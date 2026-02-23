@@ -122,31 +122,38 @@ export default function SurahDetailView({
         ref={scrollContainerRef}
       >
         {/* Hero Section */}
-        <div className="px-2 pb-5 flex flex-col items-center relative z-10">
-          <div
-            className="w-full pt-12 pb-18 px-6 flex flex-col items-center justify-center text-center text-white relative bg-contain bg-no-repeat bg-center drop-shadow-lg"
-            style={{ backgroundImage: "url('/background-header.png')" }}
-          >
-            <h2
-              className="text-[2.3rem] font-bold font-arabic leading-tight drop-shadow-md"
-              dir="rtl"
-            >
-              {surah.nama}
-            </h2>
-            <h3 className="text-[1.2rem] font-semibold mb-0 tracking-wide drop-shadow-md">
-              {surah.namaLatin}
-            </h3>
-            <p className="text-[0.75rem] opacity-90 font-medium drop-shadow-md">
-              {surah.tempatTurun === "Mekah" ? "Makkiyah" : "Madaniyah"} •{" "}
-              {surah.jumlahAyat} Ayat
-            </p>
+        <div className="px-0 pt-4 pb-2 flex flex-col items-center relative z-10">
+          {/* Container for background image to maintain aspect ratio */}
+          <div className="relative w-full max-w-[360px] aspect-[2.2/1] flex flex-col items-center justify-center text-center text-white drop-shadow-lg">
+            {/* Background Image */}
+            <div
+              className="absolute inset-0 bg-contain bg-no-repeat bg-center"
+              style={{ backgroundImage: "url('/background-header.png')" }}
+            ></div>
+
+            {/* Content positioned absolutely within the aspect ratio container */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center pt-2">
+              <h2
+                className="text-[2.2rem] sm:text-[2.2rem] -mt-6.5 font-bold font-arabic leading-tight drop-shadow-md mb-1"
+                dir="rtl"
+              >
+                {surah.nama}
+              </h2>
+              <h3 className="text-[1rem] sm:text-[1rem] font-semibold tracking-wide drop-shadow-md mb-0.5">
+                {surah.namaLatin}
+              </h3>
+              <p className="text-[0.7rem] sm:text-[0.75rem] opacity-90 font-medium drop-shadow-md">
+                {surah.tempatTurun === "Mekah" ? "Makkiyah" : "Madaniyah"} •{" "}
+                {surah.jumlahAyat} Ayat
+              </p>
+            </div>
           </div>
 
           {/* Jump to Ayat Button with Dropdown */}
-          <div className="relative" ref={dropdownRef}>
+          <div className="relative -mt-9.5 sm:-mt-9.5" ref={dropdownRef}>
             <button
               onClick={() => setShowJumpDropdown(!showJumpDropdown)}
-              className="bg-[#018ead] text-white px-5 py-2 rounded-full flex items-center shadow-md -mt-15 relative z-100 border-[1px] border-white hover:shadow-lg hover:brightness-110 transition-all"
+              className="bg-[#018ead] text-white px-6 py-1.5 rounded-full flex items-center shadow-md relative z-20 border-[1.5px] border-white hover:shadow-lg hover:brightness-110 transition-all"
             >
               <span className="text-sm font-medium">
                 {selectedAyat ? `Ayat ${selectedAyat}` : "Ayat"}
@@ -158,7 +165,7 @@ export default function SurahDetailView({
 
             {/* Dropdown Menu */}
             {showJumpDropdown && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white border border-gray-200 -mt-4 rounded-xl shadow-xl z-30 max-h-64 overflow-y-auto w-56">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white border border-gray-200 mt-2 rounded-xl shadow-xl z-30 max-h-64 overflow-y-auto w-56">
                 <div className="p-3">
                   <p className="text-xs text-gray-500 mb-2 text-center font-medium">
                     Select Ayat Number
