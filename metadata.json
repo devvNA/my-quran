@@ -1,0 +1,5 @@
+{
+  "name": "My Qur'an App",
+  "description": "A mobile-first responsive Quran application using equran.id API.",
+  "requestFramePermissions": []
+}

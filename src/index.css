@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-arabic: "Amiri", serif;
+  --color-primary: #018ead;
+  --color-primary-dark: #0d6b59;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom utility for the indent in SurahDetailView */
+.pl-13 {
+  padding-left: 3.25rem;
+}
+
+/* Blinking animation for highlighted ayat */
+@keyframes ayat-highlight {
+  0%,
+  100% {
+    background-color: rgba(17, 140, 116, 0.15);
+  }
+  50% {
+    background-color: rgba(17, 140, 116, 0.4);
+  }
+}
+
+.ayat-highlight {
+  animation: ayat-highlight 1.5s ease-in-out 3;
+  border-radius: 0.5rem;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f3f4f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #9ca3af;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #6b7280;
+}
+
+/* Selection styling */
+::selection {
+  background-color: rgba(17, 140, 116, 0.3);
+  color: inherit;
+}
+
+/* Focus outline for accessibility */
+*:focus-visible {
+  outline: 2px solid #018ead;
+  outline-offset: 2px;
+}
