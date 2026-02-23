@@ -221,10 +221,10 @@ export default function SurahDetailView({
 
               {/* Ayat Content */}
               <div className="pl-13 space-y-2">
-                <p className="text-[#018ead] italic leading-relaxed text-[1.05rem]">
+                <p className="text-[#018ead] italic leading-relaxed text-[1.085rem]">
                   {ayah.teksLatin}
                 </p>
-                <p className="text-gray-700 leading-relaxed text-[0.95rem]">
+                <p className="text-gray-700 leading-relaxed text-[0.98rem]">
                   {ayah.teksIndonesia}
                 </p>
               </div>
